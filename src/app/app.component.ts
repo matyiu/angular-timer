@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Angular Timer';
+  timer: number = 0;
+  interval: ReturnType<typeof setInterval> | undefined;
+
+  startTimer() {
+    this.interval = setInterval(() => {
+      this.timer -= 1;
+    }, 1000);
+  }
 }
