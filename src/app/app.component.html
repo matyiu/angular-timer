@@ -10,7 +10,11 @@
   />
 </div>
 <div>
-  <button type="button" [disabled]="timer === 0" (click)="startTimer()">
+  <button
+    type="button"
+    [disabled]="timer === 0 || interval !== null"
+    (click)="startTimer()"
+  >
     Start
   </button>
   <button type="button" [disabled]="interval === null" (click)="stopTimer()">
