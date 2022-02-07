@@ -8,9 +8,11 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'Angular Timer';
   timer: number = 0;
+  initialTimer: number = 0;
   interval: ReturnType<typeof setInterval> | null = null;
 
   startTimer() {
+    this.initialTimer = this.timer;
     this.interval = setInterval(() => {
       this.timer -= 1;
     }, 1000);
@@ -21,5 +23,10 @@ export class AppComponent {
       clearInterval(this.interval);
       this.interval = null;
     }
+  }
+
+  resetTimer() {
+    this.stopTimer();
+    this.timer = this.initialTimer;
   }
 }
