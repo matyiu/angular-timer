@@ -1,13 +1,23 @@
 <h1>{{ title }}</h1>
 <div>
   <label for="timer">Set Timer </label>
-  <input type="number" id="timer" [(ngModel)]="timer" />
+  <input
+    type="number"
+    [disabled]="interval !== null"
+    id="timer"
+    min="0"
+    [(ngModel)]="timer"
+  />
 </div>
 <div>
-  <button type="button" (click)="startTimer()">Start</button>
-  <button type="button" (click)="stopTimer()">Stop</button>
+  <button type="button" [disabled]="timer === 0" (click)="startTimer()">
+    Start
+  </button>
+  <button type="button" [disabled]="interval === null" (click)="stopTimer()">
+    Stop
+  </button>
   <button type="button" (click)="resetTimer()">Reset</button>
 </div>
 <div>
-  <span>Time Left: {{ timer }}</span>
+  <span><b>Time Left:</b> {{ timer }}</span>
 </div>
