@@ -20,6 +20,7 @@ export class AppComponent {
 
   startTimer() {
     this.setCurrent();
+    this.setFormatedTimer(this.current);
     this.interval = setInterval(() => {
       this.current -= 1;
       this.setFormatedTimer(this.current);
