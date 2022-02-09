@@ -23,6 +23,10 @@ export class AppComponent {
     this.interval = setInterval(() => {
       this.current -= 1;
       this.setFormatedTimer(this.current);
+      if (this.current <= 0) {
+        this.setFormatedTimer(0);
+        this.stopTimer();
+      }
     }, 1000);
   }
 
