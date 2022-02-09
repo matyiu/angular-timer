@@ -1,5 +1,11 @@
 import { Component } from '@angular/core';
 
+interface Time {
+  hours: number;
+  minutes: number;
+  seconds: number;
+}
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,14 +13,16 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Angular Timer';
+  formatedTimer: string = '';
   timer: number = 0;
-  initialTimer: number = 0;
+  current: number = 0;
   interval: ReturnType<typeof setInterval> | null = null;
 
   startTimer() {
-    this.initialTimer = this.timer;
+    this.setCurrent();
     this.interval = setInterval(() => {
-      this.timer -= 1;
+      this.current -= 1;
+      this.setFormatedTimer(this.current);
     }, 1000);
   }
 
@@ -27,6 +35,31 @@ export class AppComponent {
 
   resetTimer() {
     this.stopTimer();
-    this.timer = this.initialTimer;
+  }
+
+  private setCurrent() {
+    const { hours, minutes, seconds } = this.parseTimer(String(this.timer));
+
+    this.current = hours * 3600 + minutes * 60 + seconds;
+  }
+
+  private setFormatedTimer(time: number) {
+    const hours = Math.trunc(time / 3600);
+    const minutes = Math.trunc(time / 60 - hours * 60);
+    const seconds = Math.trunc(time - hours * 3600 - minutes * 60);
+
+    this.formatedTimer = `${hours}:${minutes}:${seconds}`;
+  }
+
+  parseTimer(time: string): Time {
+    const hours = Number(time.slice(0, -4));
+    const minutes = Number(time.slice(-4, -2));
+    const seconds = Number(time.slice(-2));
+
+    return {
+      hours,
+      minutes,
+      seconds,
+    };
   }
 }
