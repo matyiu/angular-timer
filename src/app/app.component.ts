@@ -52,7 +52,14 @@ export class AppComponent {
     const minutes = Math.trunc(time / 60 - hours * 60);
     const seconds = Math.trunc(time - hours * 3600 - minutes * 60);
 
-    this.formatedTimer = `${hours}:${minutes}:${seconds}`;
+    this.formatedTimer = `
+      ${this.addPadZero(hours)}:
+      ${this.addPadZero(minutes)}:
+      ${this.addPadZero(seconds)}`;
+  }
+
+  private addPadZero(time: number): string {
+    return String(time).padStart(2, '0');
   }
 
   parseTimer(time: string): Time {
