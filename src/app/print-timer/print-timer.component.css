@@ -8,10 +8,14 @@
 }
 
 .time {
-  display: inline-block;
-  width: 3em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2em;
   height: 100%;
   position: relative;
+  font-size: 32px;
+  box-sizing: border-box;
 }
 
 .time::after {

@@ -13,19 +13,23 @@ interface Time {
 })
 export class AppComponent {
   title = 'Angular Timer';
-  formatedTimer: string = '';
+  time: Time = {
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+  };
   timer: number = 0;
   current: number = 0;
   interval: ReturnType<typeof setInterval> | null = null;
 
   startTimer() {
     this.setCurrent();
-    this.setFormatedTimer(this.current);
+    this.setTime(this.current);
     this.interval = setInterval(() => {
       this.current -= 1;
-      this.setFormatedTimer(this.current);
+      this.setTime(this.current);
       if (this.current <= 0) {
-        this.setFormatedTimer(0);
+        this.setTime(0);
         this.stopTimer();
       }
     }, 1000);
@@ -48,15 +52,20 @@ export class AppComponent {
     this.current = hours * 3600 + minutes * 60 + seconds;
   }
 
-  private setFormatedTimer(time: number) {
+  private setTime(time: number): void {
+    this.time = this.secondsToTime(time);
+  }
+
+  private secondsToTime(time: number): Time {
     const hours = Math.trunc(time / 3600);
     const minutes = Math.trunc(time / 60 - hours * 60);
     const seconds = Math.trunc(time - hours * 3600 - minutes * 60);
 
-    this.formatedTimer = `
-      ${this.addPadZero(hours)}:
-      ${this.addPadZero(minutes)}:
-      ${this.addPadZero(seconds)}`;
+    return {
+      hours,
+      minutes,
+      seconds,
+    };
   }
 
   private addPadZero(time: number): string {

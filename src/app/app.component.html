@@ -1,7 +1,11 @@
 <h1>{{ title }}</h1>
 <div>
   <label for="timer">Set Timer </label>
-  <app-print-timer></app-print-timer>
+  <app-print-timer
+    [hours]="time.hours"
+    [minutes]="time.minutes"
+    [seconds]="time.seconds"
+  ></app-print-timer>
   <input
     type="number"
     [disabled]="interval !== null"
@@ -22,7 +26,4 @@
     Stop
   </button>
   <button type="button" (click)="resetTimer()">Reset</button>
-</div>
-<div>
-  <span><b>Time Left:</b> {{ formatedTimer }}</span>
 </div>
