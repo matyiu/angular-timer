@@ -7,22 +7,31 @@
   background: rgb(238, 238, 238);
 }
 
-.time {
+.time-field {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 2em;
-  height: 100%;
+  flex: 1 1 33%;
+  width: 33%;
+  min-width: 2em;
+}
+
+.time {
+  display: block;
   position: relative;
+  padding-right: 20px;
   font-size: 32px;
+  line-height: 32px;
+  height: 32px;
   box-sizing: border-box;
 }
 
 .time::after {
   position: absolute;
-  bottom: 3px;
   right: 3px;
-  font-size: 24px;
+  bottom: 2px;
+  font-size: 16px;
+  line-height: 16px;
   opacity: 0.7;
 }
 
