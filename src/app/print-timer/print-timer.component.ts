@@ -9,6 +9,7 @@ export class PrintTimerComponent implements OnInit {
   @Input() public hours: number = 0;
   @Input() public minutes: number = 0;
   @Input() public seconds: number = 0;
+  @Input() public focus: boolean = true;
 
   constructor() {}
 

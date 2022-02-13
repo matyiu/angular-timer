@@ -7,6 +7,10 @@
   background: rgb(238, 238, 238);
 }
 
+.time-container.focus {
+  border: 2px solid rgb(53, 60, 165);
+}
+
 .time-field {
   display: flex;
   justify-content: center;
@@ -14,6 +18,10 @@
   flex: 1 1 33%;
   width: 33%;
   min-width: 2em;
+}
+
+.time-container.focus .time-field:last-child .time {
+  border-right: 2px solid rgb(31, 31, 31);
 }
 
 .time {

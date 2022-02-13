@@ -21,6 +21,7 @@ export class AppComponent {
   timer: number = 0;
   current: number = 0;
   interval: ReturnType<typeof setInterval> | null = null;
+  focus: boolean = false;
 
   startTimer() {
     this.setCurrent();
@@ -49,6 +50,10 @@ export class AppComponent {
   timerChange(value: number) {
     this.timer = value || 0;
     this.time = this.parseTimer(String(value || 0));
+  }
+
+  toggleFocus() {
+    this.focus = !this.focus;
   }
 
   private setCurrent() {

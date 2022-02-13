@@ -5,12 +5,15 @@
     [hours]="time.hours"
     [minutes]="time.minutes"
     [seconds]="time.seconds"
+    [focus]="focus"
   ></app-print-timer>
   <input
     type="number"
     [disabled]="interval !== null"
     id="timer"
     min="0"
+    (focus)="toggleFocus()"
+    (blur)="toggleFocus()"
     [ngModel]="timer"
     (ngModelChange)="timerChange($event)"
   />
