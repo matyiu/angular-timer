@@ -11,7 +11,8 @@
     [disabled]="interval !== null"
     id="timer"
     min="0"
-    [(ngModel)]="timer"
+    [ngModel]="timer"
+    (ngModelChange)="timerChange($event)"
   />
 </div>
 <div>

@@ -46,6 +46,11 @@ export class AppComponent {
     this.stopTimer();
   }
 
+  timerChange(value: number) {
+    this.timer = value;
+    this.time = this.parseTimer(String(value));
+  }
+
   private setCurrent() {
     const { hours, minutes, seconds } = this.parseTimer(String(this.timer));
 
