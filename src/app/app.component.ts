@@ -47,8 +47,8 @@ export class AppComponent {
   }
 
   timerChange(value: number) {
-    this.timer = value;
-    this.time = this.parseTimer(String(value));
+    this.timer = value || 0;
+    this.time = this.parseTimer(String(value || 0));
   }
 
   private setCurrent() {
