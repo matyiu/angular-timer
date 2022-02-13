@@ -1,0 +1,45 @@
+:host {
+  display: block;
+  padding: 50px;
+  border: 1px solid rgb(218, 218, 218);
+}
+
+h1 {
+  margin-bottom: 30px;
+  color: rgb(19, 19, 19);
+  text-align: center;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 1.25em;
+  font-weight: 600;
+}
+
+input {
+  height: 0;
+  width: 0;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+}
+
+div {
+  margin-bottom: 30px;
+}
+
+button {
+  margin-right: 5px;
+  padding: 10px 15px;
+  border: none;
+  background: rgb(238, 238, 238);
+  font-size: 1.05em;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out;
+}
+
+button:hover:not(:disabled) {
+  background: rgb(221, 221, 221);
+}
