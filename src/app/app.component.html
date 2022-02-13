@@ -1,13 +1,15 @@
 <h1>{{ title }}</h1>
-<div>
+<div style="position: relative">
   <label for="timer">Set Timer </label>
   <app-print-timer
     [hours]="time.hours"
     [minutes]="time.minutes"
     [seconds]="time.seconds"
     [focus]="focus"
+    (click)="focusInput(inputNumber)"
   ></app-print-timer>
   <input
+    #inputNumber
     type="number"
     [disabled]="interval !== null"
     id="timer"

@@ -56,6 +56,10 @@ export class AppComponent {
     this.focus = !this.focus;
   }
 
+  focusInput(input: HTMLInputElement) {
+    input.focus();
+  }
+
   private setCurrent() {
     const { hours, minutes, seconds } = this.parseTimer(String(this.timer));
 
