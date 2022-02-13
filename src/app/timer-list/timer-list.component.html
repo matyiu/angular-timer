@@ -1,1 +1,4 @@
-<p>timer-list works!</p>
+<div class="timer-item" *ngFor="let timer of timers">
+  <h3>{{ timer.name }}</h3>
+  <p>{{ timer.time }}</p>
+</div>
