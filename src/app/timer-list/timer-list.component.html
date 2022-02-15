@@ -1,1 +1,5 @@
-<app-timer-item [timer]="timer" *ngFor="let timer of timers"></app-timer-item>
+<app-timer-item
+  (deleteTimerEvent)="deleteTimer($event)"
+  [timer]="timer"
+  *ngFor="let timer of timers"
+></app-timer-item>

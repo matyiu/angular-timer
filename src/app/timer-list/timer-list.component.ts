@@ -1,18 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import Timer from 'src/interfaces/Timer';
-
-const defaultTimers = [
-  {
-    id: '1',
-    time: 150,
-    name: 'Rest',
-  },
-  {
-    id: '2',
-    time: 30 * 60,
-    name: 'Pomodoro',
-  },
-];
+import { TimerService } from '../timer.service';
 
 @Component({
   selector: 'app-timer-list',
@@ -20,9 +8,19 @@ const defaultTimers = [
   styleUrls: ['./timer-list.component.css'],
 })
 export class TimerListComponent implements OnInit {
-  timers: Timer[] = defaultTimers;
+  timers: Timer[] = [];
 
-  constructor() {}
+  constructor(private timerService: TimerService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.timers = this.getTimers();
+  }
+
+  getTimers() {
+    return this.timerService.getAll();
+  }
+
+  deleteTimer(id: string) {
+    this.timers = this.timers.filter((timer) => timer.id !== id);
+  }
 }
