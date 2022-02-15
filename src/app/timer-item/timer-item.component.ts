@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
+import Time from 'src/interfaces/Time';
 import Timer from 'src/interfaces/Timer';
+import { secondsToTime } from 'src/utils/date';
 
 @Component({
   selector: 'app-timer-item',
@@ -9,7 +11,15 @@ import Timer from 'src/interfaces/Timer';
 export class TimerItemComponent implements OnInit {
   @Input() timer: Timer | null = null;
 
+  time: Time = {
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+  };
+
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.time = secondsToTime(this.timer ? this.timer.time : 0);
+  }
 }
