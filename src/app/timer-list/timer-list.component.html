@@ -1,4 +1,3 @@
 <div class="timer-item" *ngFor="let timer of timers">
-  <h3>{{ timer.name }}</h3>
-  <p>{{ timer.time }}</p>
+  <app-timer-item [timer]="timer"></app-timer-item>
 </div>

@@ -7,9 +7,10 @@ import { AppComponent } from './app.component';
 import { PrintTimerComponent } from './print-timer/print-timer.component';
 import { TimerListComponent } from './timer-list/timer-list.component';
 import { TimerComponent } from './timer/timer.component';
+import { TimerItemComponent } from './timer-item/timer-item.component';
 
 @NgModule({
-  declarations: [AppComponent, PrintTimerComponent, TimerListComponent, TimerComponent],
+  declarations: [AppComponent, PrintTimerComponent, TimerListComponent, TimerComponent, TimerItemComponent],
   imports: [BrowserModule, FormsModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
