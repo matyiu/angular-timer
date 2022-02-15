@@ -1,10 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
-interface Time {
-  hours: number;
-  minutes: number;
-  seconds: number;
-}
+import Time from 'src/interfaces/Time';
+import { secondsToTime } from 'src/utils/date';
 
 @Component({
   selector: 'app-timer',
@@ -69,19 +65,7 @@ export class TimerComponent implements OnInit {
   }
 
   private setTime(time: number): void {
-    this.time = this.secondsToTime(time);
-  }
-
-  private secondsToTime(time: number): Time {
-    const hours = Math.trunc(time / 3600);
-    const minutes = Math.trunc(time / 60 - hours * 60);
-    const seconds = Math.trunc(time - hours * 3600 - minutes * 60);
-
-    return {
-      hours,
-      minutes,
-      seconds,
-    };
+    this.time = secondsToTime(time);
   }
 
   private addPadZero(time: number): string {
