@@ -1,5 +1,5 @@
-<div *ngIf="timer">
+<div *ngIf="timer" class="timer-item-container">
   <h3>{{ timer.name }}</h3>
-  <p>{{ timer.time }}</p>
+  <app-print-timer [focus]="false" [seconds]="timer.time"></app-print-timer>
   <button type="button">Start</button>
 </div>

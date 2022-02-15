@@ -29,17 +29,3 @@ input {
 div {
   margin-bottom: 30px;
 }
-
-button {
-  margin-right: 5px;
-  padding: 10px 15px;
-  border: none;
-  background: rgb(238, 238, 238);
-  font-size: 1.05em;
-  cursor: pointer;
-  transition: background 0.2s ease-in-out;
-}
-
-button:hover:not(:disabled) {
-  background: rgb(221, 221, 221);
-}

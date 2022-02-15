@@ -13,9 +13,24 @@ html {
 
 body {
   background-color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   color: rgb(31, 31, 31);
+}
+
+button {
+  margin-right: 5px;
+  padding: 10px 15px;
+  border: none;
+  background: rgb(238, 238, 238);
+  font-size: 1.05em;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out;
+}
+
+button:hover:not(:disabled) {
+  background: rgb(221, 221, 221);
+}
+
+h3 {
+  font-size: 22px;
 }
