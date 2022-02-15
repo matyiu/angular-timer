@@ -68,10 +68,6 @@ export class TimerComponent implements OnInit {
     this.time = secondsToTime(time);
   }
 
-  private addPadZero(time: number): string {
-    return String(time).padStart(2, '0');
-  }
-
   parseTimer(time: string): Time {
     const hours = Number(time.slice(0, -4));
     const minutes = Number(time.slice(-4, -2));
