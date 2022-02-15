@@ -9,6 +9,10 @@ const routes: Routes = [
     component: TimerListComponent,
   },
   {
+    path: ':timer',
+    component: TimerComponent,
+  },
+  {
     path: '',
     component: TimerComponent,
   },

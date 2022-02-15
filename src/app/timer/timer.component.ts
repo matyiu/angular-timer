@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import Time from 'src/interfaces/Time';
-import { secondsToTime } from 'src/utils/date';
+import { formatTime, secondsToTime } from 'src/utils/date';
 
 @Component({
   selector: 'app-timer',
@@ -19,7 +20,7 @@ export class TimerComponent implements OnInit {
   interval: ReturnType<typeof setInterval> | null = null;
   focus: boolean = false;
 
-  constructor() {}
+  constructor(private route: ActivatedRoute) {}
 
   startTimer() {
     this.setCurrent();
@@ -68,6 +69,12 @@ export class TimerComponent implements OnInit {
     this.time = secondsToTime(time);
   }
 
+  private setTimer({ hours, minutes, seconds }: Time): void {
+    this.timer = Number(
+      formatTime(hours) + formatTime(minutes) + formatTime(seconds)
+    );
+  }
+
   parseTimer(time: string): Time {
     const hours = Number(time.slice(0, -4));
     const minutes = Number(time.slice(-4, -2));
@@ -80,5 +87,11 @@ export class TimerComponent implements OnInit {
     };
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    const time = Number(this.route.snapshot.paramMap.get('timer'));
+    if (time) {
+      this.setTimer(secondsToTime(time));
+      this.startTimer();
+    }
+  }
 }

@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import Time from 'src/interfaces/Time';
 import Timer from 'src/interfaces/Timer';
 import { secondsToTime } from 'src/utils/date';
@@ -17,9 +18,13 @@ export class TimerItemComponent implements OnInit {
     seconds: 0,
   };
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {
     this.time = secondsToTime(this.timer ? this.timer.time : 0);
+  }
+
+  startTimer() {
+    this.router.navigate(['', this.timer?.time]);
   }
 }
